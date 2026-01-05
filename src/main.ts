@@ -22,6 +22,12 @@ if (typeof datiGenerici === "string") {
 } else if (typeof datiGenerici === "boolean") {
     const data = datiGenerici ? "Sì" : "No";
     console.log(data);
-} else if (typeof datiGenerici === null) {
+} else if (datiGenerici === null) {
     console.log("Il dato è vuoto");
+} else if (Array.isArray(datiGenerici)) {
+    console.log(datiGenerici.length);
+} else if (datiGenerici instanceof Promise) {
+    datiGenerici.then((msg) => console.log(msg));
+} else {
+    console.log("Tipo non supportato");
 }
